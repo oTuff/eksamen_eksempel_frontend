@@ -12,6 +12,7 @@ function Header({loggedIn, setLoggedIn}) {
             <NavLink className="nav-home" to="/"><i></i> HOME</NavLink>
             {userFacade.hasUserAccess('admin',loggedIn) && (<NavLink className="nav-home" to="admin-panel"> ADMIN PANEL </NavLink>)}
             {userFacade.hasUserAccess("user",loggedIn) && (<NavLink className="nav-home" to="userpanel">USER PANEL</NavLink>)}
+            {userFacade.hasUserAccess("user",loggedIn) && (<NavLink className="nav-home" to="harbours">Harbours</NavLink>)}
             {loggedIn ? (<NavLink className="profileIcon" to="profile"><i className="fa fa-user"></i> {userFacade.getUserName()}</NavLink>) : <></>}
             {!loggedIn ? (<SignUpBtn/>) : (<div></div>)}
             {!loggedIn ? (<SignInBtn setLoggedIn={setLoggedIn}/>) : (<div><LoggedIn setLoggedIn={setLoggedIn}/></div>)}

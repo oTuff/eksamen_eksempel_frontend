@@ -10,6 +10,8 @@ import trainingFacade from "./utils/trainingFacade.js";
 import UserPanel from "./pages/UserPanel.jsx";
 import Profile from "./pages/Profile.jsx";
 import loginFacade from "./utils/loginFacade.js";
+import Harbours from "./pages/Harbours";
+import Boats from "./pages/Boats.jsx";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -29,6 +31,8 @@ function App() {
                 <Route path="signin" element={!loggedIn ? <SignIn setLoggedIn={setLoggedIn}/> : <Home loggedIn={loggedIn}/>}/>
                 <Route path="signup" element={<SignUp setLoggedIn={setLoggedIn}/>}/>
                 <Route path="userpanel" element={userFacade.hasUserAccess("user",loggedIn)&&<UserPanel/>}></Route>
+                <Route path="harbours" element={userFacade.hasUserAccess("user",loggedIn)&&<Harbours/>}></Route>
+                <Route path="boats" element={userFacade.hasUserAccess("user",loggedIn)&&<Boats/>}></Route>
                 <Route path="admin-panel" element={userFacade.hasUserAccess('admin', loggedIn)&&<AdminPanel trainingFacade={trainingFacade} loggedIn={loggedIn}/>}/>
                 <Route path="*" element={<h1>Page Not Found !!!!</h1>}/>
             </Routes>
