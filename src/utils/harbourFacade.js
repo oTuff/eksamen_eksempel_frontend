@@ -2,6 +2,11 @@ import apiFacade from "./apiFacade.js";
 import {API_URL} from "../../settings.js";
 
 function HarbourFacade() {
+    // const getHarbor=(id)=>{
+    //     const options = apiFacade.makeOptions("GET", null, null);
+    //     return fetch(API_URL + "/api/harbours/" + id, options).then(apiFacade.handleHttpErrors)
+    // }//todo: make function in backend
+
     const getAllHarbours = (updateAction, setErrorMessage) => {
         return apiFacade.fetchData("harbours", updateAction, setErrorMessage)
     }

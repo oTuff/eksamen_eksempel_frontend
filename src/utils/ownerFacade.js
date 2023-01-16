@@ -14,9 +14,17 @@ function OwnerFacade() {
     //     return fetch(API_URL + "/api/boats/" + id, options).then(apiFacade.handleHttpErrors)
     // }
 
+
+    const createBoat = (boat) => {
+        const options = apiFacade.makeOptions("POST", null, boat)
+        return fetch(API_URL + "/api/boats", options)
+            .then(apiFacade.handleHttpErrors)
+    }
+
     return {
         getAllOwners,
-        getAllBoats
+        getAllBoats,
+        createBoat
         // getAllOwnersByBoat
     }
 }
